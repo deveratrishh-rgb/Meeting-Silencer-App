@@ -33,6 +33,11 @@ void main() async {
   if (!await ringerService.hasDndAccess()) {
     await ringerService.openDndSettings();
   }
+  // Exact alarm access is needed for near-term meeting notifications to
+  // fire on time on Android 12+. Prompt on startup if not yet granted.
+  if (!await ringerService.hasExactAlarmAccess()) {
+    await ringerService.openExactAlarmSettings();
+  }
 
   final scheduleProvider = ScheduleProvider(storageService, notificationService);
   final settingsProvider = SettingsProvider(storageService);
@@ -43,14 +48,16 @@ void main() async {
   // meeting's restoreAfter toggle is on (TC-08 fix). Previously
   // restoreNormal ran every minute regardless of the toggle.
   MeetingSchedule? lastActive;
-  Timer.periodic(const Duration(minutes: 1), (_) async {
+  // Checks every 10 seconds instead of every minute for faster response
+  // during live demos. Trade-off: slightly more battery usage.
+  Timer.periodic(const Duration(seconds: 10), (_) async {
     if (scheduleProvider.isCurrentlyInMeeting) {
       // Same midnight-aware check as the provider (TC-22 fix)
       final activeSchedule = scheduleProvider.enabledSchedules.firstWhere(
         (s) => s.isActiveAt(DateTime.now()),
       );
-      await ringerService.setMode(activeSchedule.mode);
       lastActive = activeSchedule;
+      await ringerService.setMode(activeSchedule.mode);
     } else {
       // Meeting just ended this tick: restore only if the toggle was on
       if (lastActive != null) {

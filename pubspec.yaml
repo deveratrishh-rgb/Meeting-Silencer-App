@@ -16,7 +16,7 @@ dependencies:
   provider: ^6.1.2
 
   # Notifications
-  flutter_local_notifications: ^17.2.0
+  flutter_local_notifications: ^17.2.4
 
   # Timezone support
   timezone: ^0.9.4

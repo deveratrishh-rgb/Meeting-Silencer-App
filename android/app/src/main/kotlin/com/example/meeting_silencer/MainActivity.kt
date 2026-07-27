@@ -2,6 +2,8 @@ package com.example.meeting_silencer
 import android.app.NotificationManager
 import android.content.Intent
 import android.media.AudioManager
+import android.app.AlarmManager
+import android.os.Build
 import android.provider.Settings
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -46,6 +48,23 @@ class MainActivity : FlutterActivity() {
                             // Safety net in case the permission is revoked mid-call
                             result.error("DND_PERMISSION_DENIED", e.message, null)
                         }
+                    }
+                    // True when exact alarms are allowed (Android 12+ requirement
+                    // for precisely timed notifications, e.g. near-term meetings)
+                    "hasExactAlarmAccess" -> {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                            val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+                            result.success(alarmManager.canScheduleExactAlarms())
+                        } else {
+                            result.success(true)
+                        }
+                    }
+                    // Opens the system screen where the user can grant exact alarm access
+                    "openExactAlarmSettings" -> {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                            startActivity(Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
+                        }
+                        result.success(null)
                     }
                     // Lets Flutter ask whether DND access is granted
                     "hasDndAccess" -> {

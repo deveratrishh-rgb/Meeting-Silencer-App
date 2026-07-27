@@ -104,8 +104,10 @@ class NotificationService {
 
   Future<void> cancelScheduleNotifications(String scheduleId) async {
     for (int i = 0; i < 7; i++) {
-      await _plugin.cancel(_notificationId(scheduleId, i, 0));
-      await _plugin.cancel(_notificationId(scheduleId, i, 1));
+      try {
+        await _plugin.cancel(_notificationId(scheduleId, i, 0));
+        await _plugin.cancel(_notificationId(scheduleId, i, 1));
+      } catch (_) {}
     }
   }
 

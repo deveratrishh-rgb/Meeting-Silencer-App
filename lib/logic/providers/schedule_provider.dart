@@ -43,25 +43,25 @@ class ScheduleProvider extends ChangeNotifier {
     // Silently ignore an exact duplicate instead of adding it.
     if (isDuplicate(schedule)) return;
     _schedules.add(schedule);
-    await _persist();
-    await _notifications.scheduleAlertNotification(schedule);
     notifyListeners();
+    _persist();
+    _notifications.scheduleAlertNotification(schedule);
   }
 
   Future<void> updateSchedule(MeetingSchedule updated) async {
     final index = _schedules.indexWhere((s) => s.id == updated.id);
     if (index == -1) return;
     _schedules[index] = updated;
-    await _persist();
-    await _notifications.scheduleAlertNotification(updated);
     notifyListeners();
+    _persist();
+    _notifications.scheduleAlertNotification(updated);
   }
 
   Future<void> deleteSchedule(String id) async {
     _schedules.removeWhere((s) => s.id == id);
-    await _persist();
-    await _notifications.cancelScheduleNotifications(id);
     notifyListeners();
+    _persist();
+    _notifications.cancelScheduleNotifications(id);
   }
 
   Future<void> toggleSchedule(String id) async {
@@ -69,9 +69,9 @@ class ScheduleProvider extends ChangeNotifier {
     if (index == -1) return;
     _schedules[index] =
         _schedules[index].copyWith(isEnabled: !_schedules[index].isEnabled);
-    await _persist();
-    await _notifications.scheduleAlertNotification(_schedules[index]);
     notifyListeners();
+    _persist();
+    _notifications.scheduleAlertNotification(_schedules[index]);
   }
 
   // ── Helpers ───────────────────────────────────────────────────────────────

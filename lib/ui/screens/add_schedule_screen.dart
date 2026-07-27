@@ -272,7 +272,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
-            children: [5, 10, 15, 30].map((mins) => ChoiceChip(
+            children: [1, 5, 10, 15, 30].map((mins) => ChoiceChip(
               // Translated minute label (handles singular/plural per locale)
               label: Text(l10n.minutes(mins)),
               selected: _alertMinutes == mins,

@@ -64,4 +64,19 @@ class RingerService {
       await _channel.invokeMethod('openDndSettings');
     }
   }
+
+  /// True when exact alarm scheduling is allowed. Required on Android 12+
+  /// for near-term meeting notifications to fire on time.
+  Future<bool> hasExactAlarmAccess() async {
+    if (kIsWeb || !Platform.isAndroid) return true;
+    return await _channel.invokeMethod('hasExactAlarmAccess') as bool;
+  }
+
+  /// Opens the system screen where the user grants exact alarm access.
+  Future<void> openExactAlarmSettings() async {
+    if (kIsWeb) return;
+    if (Platform.isAndroid) {
+      await _channel.invokeMethod('openExactAlarmSettings');
+    }
+  }
 }
