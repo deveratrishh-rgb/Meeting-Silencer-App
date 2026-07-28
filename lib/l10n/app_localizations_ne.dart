@@ -58,4 +58,160 @@ class AppLocalizationsNe extends AppLocalizations {
   String notificationTitle(String title) {
     return 'आगामी बैठक: $title';
   }
+
+  @override
+  String get dayMon => 'सोम';
+
+  @override
+  String get dayTue => 'मंग';
+
+  @override
+  String get dayWed => 'बुध';
+
+  @override
+  String get dayThu => 'बिही';
+
+  @override
+  String get dayFri => 'शुक्र';
+
+  @override
+  String get daySat => 'शनि';
+
+  @override
+  String get daySun => 'आइत';
+
+  @override
+  String get restoresAfterMeeting => 'बैठक पछि पुनर्स्थापना';
+
+  @override
+  String get deleteSchedule => 'तालिका मेटाउने?';
+
+  @override
+  String deleteConfirm(String title) {
+    return '\"$title\" हटाउने?';
+  }
+
+  @override
+  String get cancel => 'रद्द गर्नुहोस्';
+
+  @override
+  String get delete => 'मेटाउनुहोस्';
+
+  @override
+  String get save => 'सुरक्षित गर्नुहोस्';
+
+  @override
+  String get worldClock => 'विश्व घडी';
+
+  @override
+  String get time => 'समय';
+
+  @override
+  String get repeatOn => 'दोहोर्याउने दिन';
+
+  @override
+  String get deviceMode => 'बैठकमा उपकरण मोड';
+
+  @override
+  String get afterMeeting => 'बैठक पछि';
+
+  @override
+  String get restoreNormal => 'सामान्य मोड पुनर्स्थापना';
+
+  @override
+  String get restoreSubtitle => 'बैठक समाप्त भएपछि सम्झना पठाउनुहोस्';
+
+  @override
+  String get templates => 'टेम्पलेटहरू';
+
+  @override
+  String get enterTitle => 'कृपया बैठकको शीर्षक प्रविष्ट गर्नुहोस्';
+
+  @override
+  String get selectDay => 'कृपया कम्तिमा एक दिन चयन गर्नुहोस्';
+
+  @override
+  String get duplicateSchedule => 'यो तालिका पहिले नै अवस्थित छ';
+
+  @override
+  String get themeDark => 'गाढा';
+
+  @override
+  String get themeLight => 'उज्यालो';
+
+  @override
+  String get themeAuto => 'स्वचालित';
+
+  @override
+  String get settingsAppearance => 'रूप';
+
+  @override
+  String get settingsPrivacy => 'गोपनीयता र सुरक्षा';
+
+  @override
+  String get privacyDescription =>
+      'सबै डेटा तपाईंको उपकरणमा स्थानीय रूपमा भण्डारण गरिन्छ।';
+
+  @override
+  String get monthJan => 'जन';
+
+  @override
+  String get monthFeb => 'फेब';
+
+  @override
+  String get monthMar => 'मार्च';
+
+  @override
+  String get monthApr => 'अप्रि';
+
+  @override
+  String get monthMay => 'मे';
+
+  @override
+  String get monthJun => 'जुन';
+
+  @override
+  String get monthJul => 'जुल';
+
+  @override
+  String get monthAug => 'अग';
+
+  @override
+  String get monthSep => 'सेप';
+
+  @override
+  String get monthOct => 'अक्टो';
+
+  @override
+  String get monthNov => 'नोभे';
+
+  @override
+  String get monthDec => 'डिसे';
+
+  @override
+  String get appVersion => 'Meeting Silencer v1.0.0';
+
+  @override
+  String get courseLabel => 'ICT107 मोबाइल एप र वेब विकास';
+
+  @override
+  String get templateWork => '९-५ काम';
+
+  @override
+  String get templateLecture1h => '१ घण्टा कक्षा';
+
+  @override
+  String get templateLecture2h => '२ घण्टा कक्षा';
+
+  @override
+  String get templateStandup => '३० मिनेट स्ट्यान्डअप';
+
+  @override
+  String get templateEvening => 'साँझको कक्षा';
+
+  @override
+  String get meetingTitle => 'बैठकको शीर्षक';
+
+  @override
+  String get meetingTitleHint => 'जस्तै, दैनिक स्ट्यान्डअप';
 }

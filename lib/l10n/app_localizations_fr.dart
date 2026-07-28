@@ -65,4 +65,161 @@ class AppLocalizationsFr extends AppLocalizations {
   String notificationTitle(String title) {
     return 'Réunion à venir : $title';
   }
+
+  @override
+  String get dayMon => 'Lun';
+
+  @override
+  String get dayTue => 'Mar';
+
+  @override
+  String get dayWed => 'Mer';
+
+  @override
+  String get dayThu => 'Jeu';
+
+  @override
+  String get dayFri => 'Ven';
+
+  @override
+  String get daySat => 'Sam';
+
+  @override
+  String get daySun => 'Dim';
+
+  @override
+  String get restoresAfterMeeting => 'Restaure après la réunion';
+
+  @override
+  String get deleteSchedule => 'Supprimer l\'horaire ?';
+
+  @override
+  String deleteConfirm(String title) {
+    return 'Supprimer « $title » ?';
+  }
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get delete => 'Supprimer';
+
+  @override
+  String get save => 'Enregistrer';
+
+  @override
+  String get worldClock => 'Horloge Mondiale';
+
+  @override
+  String get time => 'Heure';
+
+  @override
+  String get repeatOn => 'Répéter le';
+
+  @override
+  String get deviceMode => 'Mode pendant la réunion';
+
+  @override
+  String get afterMeeting => 'Après la réunion';
+
+  @override
+  String get restoreNormal => 'Restaurer le mode normal';
+
+  @override
+  String get restoreSubtitle =>
+      'Envoyer un rappel à la fin de la réunion pour rétablir le son';
+
+  @override
+  String get templates => 'MODÈLES';
+
+  @override
+  String get enterTitle => 'Veuillez saisir un titre de réunion';
+
+  @override
+  String get selectDay => 'Veuillez sélectionner au moins un jour';
+
+  @override
+  String get duplicateSchedule => 'Cet horaire existe déjà';
+
+  @override
+  String get themeDark => 'Sombre';
+
+  @override
+  String get themeLight => 'Clair';
+
+  @override
+  String get themeAuto => 'Auto';
+
+  @override
+  String get settingsAppearance => 'APPARENCE';
+
+  @override
+  String get settingsPrivacy => 'Confidentialite et securite';
+
+  @override
+  String get privacyDescription =>
+      'Toutes les donnees sont stockees localement sur votre appareil. Aucune information personnelle n est collectee, partagee ou transmise.';
+
+  @override
+  String get monthJan => 'Jan';
+
+  @override
+  String get monthFeb => 'Fev';
+
+  @override
+  String get monthMar => 'Mar';
+
+  @override
+  String get monthApr => 'Avr';
+
+  @override
+  String get monthMay => 'Mai';
+
+  @override
+  String get monthJun => 'Juin';
+
+  @override
+  String get monthJul => 'Juil';
+
+  @override
+  String get monthAug => 'Aout';
+
+  @override
+  String get monthSep => 'Sep';
+
+  @override
+  String get monthOct => 'Oct';
+
+  @override
+  String get monthNov => 'Nov';
+
+  @override
+  String get monthDec => 'Dec';
+
+  @override
+  String get appVersion => 'Meeting Silencer v1.0.0';
+
+  @override
+  String get courseLabel => 'ICT107 Developpement Applications Mobiles et Web';
+
+  @override
+  String get templateWork => 'Travail 9-17h';
+
+  @override
+  String get templateLecture1h => 'Cours 1h';
+
+  @override
+  String get templateLecture2h => 'Cours 2h';
+
+  @override
+  String get templateStandup => 'Reunion 30min';
+
+  @override
+  String get templateEvening => 'Cours du soir';
+
+  @override
+  String get meetingTitle => 'Titre de la reunion';
+
+  @override
+  String get meetingTitleHint => 'ex. Reunion quotidienne';
 }

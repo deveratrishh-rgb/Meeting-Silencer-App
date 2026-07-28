@@ -64,4 +64,161 @@ class AppLocalizationsEn extends AppLocalizations {
   String notificationTitle(String title) {
     return 'Upcoming meeting: $title';
   }
+
+  @override
+  String get dayMon => 'Mon';
+
+  @override
+  String get dayTue => 'Tue';
+
+  @override
+  String get dayWed => 'Wed';
+
+  @override
+  String get dayThu => 'Thu';
+
+  @override
+  String get dayFri => 'Fri';
+
+  @override
+  String get daySat => 'Sat';
+
+  @override
+  String get daySun => 'Sun';
+
+  @override
+  String get restoresAfterMeeting => 'Restores after meeting';
+
+  @override
+  String get deleteSchedule => 'Delete schedule?';
+
+  @override
+  String deleteConfirm(String title) {
+    return 'Remove \"$title\"?';
+  }
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get worldClock => 'World Clock';
+
+  @override
+  String get time => 'Time';
+
+  @override
+  String get repeatOn => 'Repeat on';
+
+  @override
+  String get deviceMode => 'Device mode during meeting';
+
+  @override
+  String get afterMeeting => 'After meeting ends';
+
+  @override
+  String get restoreNormal => 'Restore normal mode';
+
+  @override
+  String get restoreSubtitle =>
+      'Send a reminder when the meeting ends so you can turn sound back on';
+
+  @override
+  String get templates => 'TEMPLATES';
+
+  @override
+  String get enterTitle => 'Please enter a meeting title';
+
+  @override
+  String get selectDay => 'Please select at least one day';
+
+  @override
+  String get duplicateSchedule => 'This schedule already exists';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeAuto => 'Auto';
+
+  @override
+  String get settingsAppearance => 'APPEARANCE';
+
+  @override
+  String get settingsPrivacy => 'Privacy & Security';
+
+  @override
+  String get privacyDescription =>
+      'All data is stored locally on your device. No personal information is collected, shared or transmitted.';
+
+  @override
+  String get monthJan => 'Jan';
+
+  @override
+  String get monthFeb => 'Feb';
+
+  @override
+  String get monthMar => 'Mar';
+
+  @override
+  String get monthApr => 'Apr';
+
+  @override
+  String get monthMay => 'May';
+
+  @override
+  String get monthJun => 'Jun';
+
+  @override
+  String get monthJul => 'Jul';
+
+  @override
+  String get monthAug => 'Aug';
+
+  @override
+  String get monthSep => 'Sep';
+
+  @override
+  String get monthOct => 'Oct';
+
+  @override
+  String get monthNov => 'Nov';
+
+  @override
+  String get monthDec => 'Dec';
+
+  @override
+  String get appVersion => 'Meeting Silencer v1.0.0';
+
+  @override
+  String get courseLabel => 'ICT107 Mobile App and Web Development';
+
+  @override
+  String get templateWork => '9-5 Work';
+
+  @override
+  String get templateLecture1h => '1hr Lecture';
+
+  @override
+  String get templateLecture2h => '2hr Lecture';
+
+  @override
+  String get templateStandup => '30min Standup';
+
+  @override
+  String get templateEvening => 'Evening Class';
+
+  @override
+  String get meetingTitle => 'Meeting title';
+
+  @override
+  String get meetingTitleHint => 'e.g. Daily Stand-up';
 }

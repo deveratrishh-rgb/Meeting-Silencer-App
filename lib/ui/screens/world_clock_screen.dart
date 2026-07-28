@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../core/constants/time_zones.dart';
 import '../../logic/providers/timezone_provider.dart';
+import '../../l10n/app_localizations.dart';
 
 class WorldClockScreen extends StatefulWidget {
   const WorldClockScreen({super.key});
@@ -34,11 +35,12 @@ class _WorldClockScreenState extends State<WorldClockScreen> {
     context.watch<TimezoneProvider>();
     final provider = context.read<TimezoneProvider>();
 
+    final l10n = AppLocalizations.of(context);
     return Scaffold(
-     appBar: AppBar(
-  title: const Text('World Clock'),
-  centerTitle: true,
-), 
+      appBar: AppBar(
+        title: Text(l10n.worldClock),
+        centerTitle: true,
+      ),
       body: ListView.separated(
         padding: const EdgeInsets.all(16),
         itemCount: TimeZoneConstants.majorCities.length,
@@ -72,9 +74,11 @@ class _ClockCard extends StatelessWidget {
     return '$h:$m:$s $period';
   }
 
-  String get _dateString {
-    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-    const weekdays = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  String _dateString(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final months = [l10n.monthJan, l10n.monthFeb, l10n.monthMar, l10n.monthApr, l10n.monthMay, l10n.monthJun,
+                     l10n.monthJul, l10n.monthAug, l10n.monthSep, l10n.monthOct, l10n.monthNov, l10n.monthDec];
+    final weekdays = [l10n.dayMon, l10n.dayTue, l10n.dayWed, l10n.dayThu, l10n.dayFri, l10n.daySat, l10n.daySun];
     return '${weekdays[time.weekday - 1]}, ${months[time.month - 1]} ${time.day}';
   }
 
@@ -113,7 +117,7 @@ class _ClockCard extends StatelessWidget {
                 children: [
                   Text(city.name, style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
                   Text('${city.countryCode} · $offset', style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant)),
-                  Text(_dateString, style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant)),
+                  Text(_dateString(context), style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant)),
                 ],
               ),
             ),

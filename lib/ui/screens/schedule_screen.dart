@@ -52,7 +52,7 @@ class _ScheduleCard extends StatelessWidget {
   final MeetingSchedule schedule;
   const _ScheduleCard({required this.schedule});
 
-  static const _days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  // Day labels are now localised — see _dayString below
 
   String _fmt(int hour, int minute) {
     final tod = TimeOfDay(hour: hour, minute: minute);
@@ -62,7 +62,11 @@ class _ScheduleCard extends StatelessWidget {
     return '$h:$m $p';
   }
 
-  String get _dayString => schedule.repeatDays.map((d) => _days[d - 1]).join(', ');
+  String _dayString(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final days = [l10n.dayMon, l10n.dayTue, l10n.dayWed, l10n.dayThu, l10n.dayFri, l10n.daySat, l10n.daySun];
+    return schedule.repeatDays.map((d) => days[d - 1]).join(', ');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -93,14 +97,17 @@ class _ScheduleCard extends StatelessWidget {
                   const SizedBox(height: 2),
                   Text('${_fmt(schedule.startHour, schedule.startMinute)} – ${_fmt(schedule.endHour, schedule.endMinute)}',
                       style: TextStyle(color: scheme.onSurfaceVariant)),
-                  Text(_dayString, style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant)),
+                  Text(_dayString(context), style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant)),
                   if (schedule.restoreAfter)
                     Row(
                       children: [
                         Icon(Icons.volume_up, size: 12, color: scheme.primary),
                         const SizedBox(width: 4),
-                        Text('Restores after meeting',
-                            style: TextStyle(fontSize: 11, color: scheme.primary)),
+                        Expanded(
+                          child: Text(AppLocalizations.of(context).restoresAfterMeeting,
+                              style: TextStyle(fontSize: 11, color: scheme.primary),
+                              overflow: TextOverflow.ellipsis),
+                        ),
                       ],
                     ),
                 ],
@@ -126,14 +133,15 @@ class _ScheduleCard extends StatelessWidget {
   }
 
   Future<void> _confirmDelete(BuildContext context, ScheduleProvider provider) async {
+    final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Delete schedule?'),
-        content: Text('Remove "${schedule.title}"?'),
+        title: Text(l10n.deleteSchedule),
+        content: Text(l10n.deleteConfirm(schedule.title)),
         actions: [
-          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: const Text('Cancel')),
-          TextButton(onPressed: () => Navigator.of(ctx).pop(true), child: const Text('Delete')),
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(l10n.cancel)),
+          TextButton(onPressed: () => Navigator.of(ctx).pop(true), child: Text(l10n.delete)),
         ],
       ),
     );

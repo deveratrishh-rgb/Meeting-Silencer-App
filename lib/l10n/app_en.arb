@@ -1,55 +1,128 @@
 {
   "@@locale": "en",
-
   "appTitle": "Meeting Silencer",
-  "@appTitle": { "description": "App name" },
-
+  "@appTitle": {
+    "description": "App name"
+  },
   "navSchedules": "Schedules",
-  "@navSchedules": { "description": "Bottom nav: schedules tab" },
-
+  "@navSchedules": {
+    "description": "Bottom nav: schedules tab"
+  },
   "navWorldClock": "World Clock",
-  "@navWorldClock": { "description": "Bottom nav: world clock tab" },
-
+  "@navWorldClock": {
+    "description": "Bottom nav: world clock tab"
+  },
   "navSettings": "Settings",
-  "@navSettings": { "description": "Bottom nav: settings tab" },
-
+  "@navSettings": {
+    "description": "Bottom nav: settings tab"
+  },
   "addSchedule": "Add schedule",
-  "@addSchedule": { "description": "FAB tooltip and form title" },
-
+  "@addSchedule": {
+    "description": "FAB tooltip and form title"
+  },
   "noSchedules": "No schedules yet",
-  "@noSchedules": { "description": "Empty state heading" },
-
+  "@noSchedules": {
+    "description": "Empty state heading"
+  },
   "noSchedulesHint": "Tap + to add your first meeting schedule",
-  "@noSchedulesHint": { "description": "Empty state sub-text" },
-
+  "@noSchedulesHint": {
+    "description": "Empty state sub-text"
+  },
   "modeSilent": "Silent",
-  "@modeSilent": { "description": "Silent mode label" },
-
+  "@modeSilent": {
+    "description": "Silent mode label"
+  },
   "modeVibrate": "Vibrate",
-  "@modeVibrate": { "description": "Vibrate mode label" },
-
+  "@modeVibrate": {
+    "description": "Vibrate mode label"
+  },
   "settingsLanguage": "Language",
-  "@settingsLanguage": { "description": "Language setting label" },
-
+  "@settingsLanguage": {
+    "description": "Language setting label"
+  },
   "settingsDefaultMode": "Default mode",
-  "@settingsDefaultMode": { "description": "Default mode setting label" },
-
+  "@settingsDefaultMode": {
+    "description": "Default mode setting label"
+  },
   "settingsAlertBefore": "Alert before meeting",
-  "@settingsAlertBefore": { "description": "Alert timing label" },
-
+  "@settingsAlertBefore": {
+    "description": "Alert timing label"
+  },
   "minutes": "{count, plural, one{{count} minute} other{{count} minutes}}",
   "@minutes": {
     "description": "Minutes count with plural support",
     "placeholders": {
-      "count": { "type": "num", "format": "compact" }
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
     }
   },
-
   "notificationTitle": "Upcoming meeting: {title}",
   "@notificationTitle": {
     "description": "Pre-meeting notification title",
     "placeholders": {
-      "title": { "type": "String" }
+      "title": {
+        "type": "String"
+      }
     }
-  }
+  },
+  "dayMon": "Mon",
+  "dayTue": "Tue",
+  "dayWed": "Wed",
+  "dayThu": "Thu",
+  "dayFri": "Fri",
+  "daySat": "Sat",
+  "daySun": "Sun",
+  "restoresAfterMeeting": "Restores after meeting",
+  "deleteSchedule": "Delete schedule?",
+  "deleteConfirm": "Remove \"{title}\"?",
+  "cancel": "Cancel",
+  "delete": "Delete",
+  "save": "Save",
+  "worldClock": "World Clock",
+  "time": "Time",
+  "repeatOn": "Repeat on",
+  "deviceMode": "Device mode during meeting",
+  "afterMeeting": "After meeting ends",
+  "restoreNormal": "Restore normal mode",
+  "restoreSubtitle": "Send a reminder when the meeting ends so you can turn sound back on",
+  "templates": "TEMPLATES",
+  "enterTitle": "Please enter a meeting title",
+  "selectDay": "Please select at least one day",
+  "duplicateSchedule": "This schedule already exists",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+  "themeAuto": "Auto",
+  "@deleteConfirm": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsAppearance": "APPEARANCE",
+  "settingsPrivacy": "Privacy & Security",
+  "privacyDescription": "All data is stored locally on your device. No personal information is collected, shared or transmitted.",
+  "monthJan": "Jan",
+  "monthFeb": "Feb",
+  "monthMar": "Mar",
+  "monthApr": "Apr",
+  "monthMay": "May",
+  "monthJun": "Jun",
+  "monthJul": "Jul",
+  "monthAug": "Aug",
+  "monthSep": "Sep",
+  "monthOct": "Oct",
+  "monthNov": "Nov",
+  "monthDec": "Dec",
+  "appVersion": "Meeting Silencer v1.0.0",
+  "courseLabel": "ICT107 Mobile App and Web Development",
+  "templateWork": "9-5 Work",
+  "templateLecture1h": "1hr Lecture",
+  "templateLecture2h": "2hr Lecture",
+  "templateStandup": "30min Standup",
+  "templateEvening": "Evening Class",
+  "meetingTitle": "Meeting title",
+  "meetingTitleHint": "e.g. Daily Stand-up"
 }

@@ -25,7 +25,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
   bool _restoreAfter = true;
   bool _saving = false;
 
-  static const List<String> _dayLabels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  // Day labels are now localised — built in build() from l10n
 
   @override
   void initState() {
@@ -85,16 +85,17 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
   }
 
   Future<void> _save() async {
+    final l10n = AppLocalizations.of(context);
     final title = _titleController.text.trim();
     if (title.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please enter a meeting title')),
+        SnackBar(content: Text(l10n.enterTitle)),
       );
       return;
     }
     if (_selectedDays.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please select at least one day')),
+        SnackBar(content: Text(l10n.selectDay)),
       );
       return;
     }
@@ -115,7 +116,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
     if (widget.existing == null && provider.isDuplicate(schedule)) {
       setState(() => _saving = false);
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('This schedule already exists')),
+        SnackBar(content: Text(l10n.duplicateSchedule)),
       );
       return;
     }
@@ -150,7 +151,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
             // 'Save' has no l10n key — kept in English
             child: _saving
                 ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
-                : const Text('Save'),
+                : Text(l10n.save),
           ),
         ],
       ),
@@ -159,7 +160,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
         children: [
           // Schedule templates for quick setup
           if (widget.existing == null) ...[
-            Text('TEMPLATES', style: TextStyle(
+            Text(l10n.templates, style: TextStyle(
               fontSize: 11, fontWeight: FontWeight.w600,
               letterSpacing: 0.8, color: scheme.primary)),
             const SizedBox(height: 8),
@@ -169,27 +170,27 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
                 scrollDirection: Axis.horizontal,
                 children: [
                   _TemplateChip(
-                    label: '9-5 Work',
+                    label: l10n.templateWork,
                     onTap: () => _applyTemplate('Work Hours', 9, 0, 17, 0, {1,2,3,4,5}, 'silent'),
                   ),
                   const SizedBox(width: 8),
                   _TemplateChip(
-                    label: '1hr Lecture',
+                    label: l10n.templateLecture1h,
                     onTap: () => _applyTemplate('Lecture', 9, 0, 10, 0, {1,2,3,4,5}, 'silent'),
                   ),
                   const SizedBox(width: 8),
                   _TemplateChip(
-                    label: '2hr Lecture',
+                    label: l10n.templateLecture2h,
                     onTap: () => _applyTemplate('Lecture', 9, 0, 11, 0, {1,2,3,4,5}, 'silent'),
                   ),
                   const SizedBox(width: 8),
                   _TemplateChip(
-                    label: '30min Standup',
+                    label: l10n.templateStandup,
                     onTap: () => _applyTemplate('Standup', 9, 0, 9, 30, {1,2,3,4,5}, 'vibrate'),
                   ),
                   const SizedBox(width: 8),
                   _TemplateChip(
-                    label: 'Evening Class',
+                    label: l10n.templateEvening,
                     onTap: () => _applyTemplate('Evening Class', 18, 0, 21, 0, {1,3}, 'silent'),
                   ),
                 ],
@@ -202,18 +203,18 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
           // Title field — label/hint have no l10n keys, kept in English
           TextField(
             controller: _titleController,
-            decoration: const InputDecoration(
-              labelText: 'Meeting title',
-              hintText: 'e.g. Daily Stand-up',
-              border: OutlineInputBorder(),
-              prefixIcon: Icon(Icons.title),
+            decoration: InputDecoration(
+              labelText: l10n.meetingTitle,
+              hintText: l10n.meetingTitleHint,
+              border: const OutlineInputBorder(),
+              prefixIcon: const Icon(Icons.title),
             ),
             textCapitalization: TextCapitalization.sentences,
           ),
           const SizedBox(height: 24),
 
           // Time section — 'Time', 'Start', 'End' have no l10n keys, kept in English
-          Text('Time', style: Theme.of(context).textTheme.titleSmall),
+          Text(l10n.time, style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           Row(
             children: [
@@ -225,7 +226,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
           const SizedBox(height: 24),
 
           // Days section — day abbreviations have no l10n keys, kept in English
-          Text('Repeat on', style: Theme.of(context).textTheme.titleSmall),
+          Text(l10n.repeatOn, style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -244,7 +245,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   alignment: Alignment.center,
-                  child: Text(_dayLabels[i],
+                  child: Text([l10n.dayMon, l10n.dayTue, l10n.dayWed, l10n.dayThu, l10n.dayFri, l10n.daySat, l10n.daySun][i],
                     style: TextStyle(fontSize: 11, fontWeight: FontWeight.w500,
                       color: selected ? scheme.onPrimary : scheme.onSurfaceVariant)),
                 ),
@@ -254,7 +255,7 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
           const SizedBox(height: 24),
 
           // Mode section — 'Device mode during meeting' has no l10n key, kept in English
-          Text('Device mode during meeting', style: Theme.of(context).textTheme.titleSmall),
+          Text(l10n.deviceMode, style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           SegmentedButton<String>(
             segments: [
@@ -282,14 +283,14 @@ class _AddScheduleScreenState extends State<AddScheduleScreen> {
           const SizedBox(height: 24),
 
           // Restore section — 'After meeting ends', toggle labels have no l10n keys, kept in English
-          Text('After meeting ends', style: Theme.of(context).textTheme.titleSmall),
+          Text(l10n.afterMeeting, style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 8),
           Card(
             child: SwitchListTile(
               value: _restoreAfter,
               onChanged: (val) => setState(() => _restoreAfter = val),
-              title: const Text('Restore normal mode'),
-              subtitle: const Text('Send a reminder when the meeting ends so you can turn sound back on'),
+              title: Text(l10n.restoreNormal),
+              subtitle: Text(l10n.restoreSubtitle),
               secondary: Icon(
                 _restoreAfter ? Icons.volume_up : Icons.volume_off,
                 color: _restoreAfter ? scheme.primary : scheme.onSurfaceVariant,

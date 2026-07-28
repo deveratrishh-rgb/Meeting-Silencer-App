@@ -191,6 +191,312 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Upcoming meeting: {title}'**
   String notificationTitle(String title);
+
+  /// No description provided for @dayMon.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get dayMon;
+
+  /// No description provided for @dayTue.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get dayTue;
+
+  /// No description provided for @dayWed.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get dayWed;
+
+  /// No description provided for @dayThu.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get dayThu;
+
+  /// No description provided for @dayFri.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get dayFri;
+
+  /// No description provided for @daySat.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get daySat;
+
+  /// No description provided for @daySun.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get daySun;
+
+  /// No description provided for @restoresAfterMeeting.
+  ///
+  /// In en, this message translates to:
+  /// **'Restores after meeting'**
+  String get restoresAfterMeeting;
+
+  /// No description provided for @deleteSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete schedule?'**
+  String get deleteSchedule;
+
+  /// No description provided for @deleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove \"{title}\"?'**
+  String deleteConfirm(String title);
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @worldClock.
+  ///
+  /// In en, this message translates to:
+  /// **'World Clock'**
+  String get worldClock;
+
+  /// No description provided for @time.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get time;
+
+  /// No description provided for @repeatOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat on'**
+  String get repeatOn;
+
+  /// No description provided for @deviceMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Device mode during meeting'**
+  String get deviceMode;
+
+  /// No description provided for @afterMeeting.
+  ///
+  /// In en, this message translates to:
+  /// **'After meeting ends'**
+  String get afterMeeting;
+
+  /// No description provided for @restoreNormal.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore normal mode'**
+  String get restoreNormal;
+
+  /// No description provided for @restoreSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send a reminder when the meeting ends so you can turn sound back on'**
+  String get restoreSubtitle;
+
+  /// No description provided for @templates.
+  ///
+  /// In en, this message translates to:
+  /// **'TEMPLATES'**
+  String get templates;
+
+  /// No description provided for @enterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter a meeting title'**
+  String get enterTitle;
+
+  /// No description provided for @selectDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select at least one day'**
+  String get selectDay;
+
+  /// No description provided for @duplicateSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'This schedule already exists'**
+  String get duplicateSchedule;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeAuto.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto'**
+  String get themeAuto;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'APPEARANCE'**
+  String get settingsAppearance;
+
+  /// No description provided for @settingsPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & Security'**
+  String get settingsPrivacy;
+
+  /// No description provided for @privacyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'All data is stored locally on your device. No personal information is collected, shared or transmitted.'**
+  String get privacyDescription;
+
+  /// No description provided for @monthJan.
+  ///
+  /// In en, this message translates to:
+  /// **'Jan'**
+  String get monthJan;
+
+  /// No description provided for @monthFeb.
+  ///
+  /// In en, this message translates to:
+  /// **'Feb'**
+  String get monthFeb;
+
+  /// No description provided for @monthMar.
+  ///
+  /// In en, this message translates to:
+  /// **'Mar'**
+  String get monthMar;
+
+  /// No description provided for @monthApr.
+  ///
+  /// In en, this message translates to:
+  /// **'Apr'**
+  String get monthApr;
+
+  /// No description provided for @monthMay.
+  ///
+  /// In en, this message translates to:
+  /// **'May'**
+  String get monthMay;
+
+  /// No description provided for @monthJun.
+  ///
+  /// In en, this message translates to:
+  /// **'Jun'**
+  String get monthJun;
+
+  /// No description provided for @monthJul.
+  ///
+  /// In en, this message translates to:
+  /// **'Jul'**
+  String get monthJul;
+
+  /// No description provided for @monthAug.
+  ///
+  /// In en, this message translates to:
+  /// **'Aug'**
+  String get monthAug;
+
+  /// No description provided for @monthSep.
+  ///
+  /// In en, this message translates to:
+  /// **'Sep'**
+  String get monthSep;
+
+  /// No description provided for @monthOct.
+  ///
+  /// In en, this message translates to:
+  /// **'Oct'**
+  String get monthOct;
+
+  /// No description provided for @monthNov.
+  ///
+  /// In en, this message translates to:
+  /// **'Nov'**
+  String get monthNov;
+
+  /// No description provided for @monthDec.
+  ///
+  /// In en, this message translates to:
+  /// **'Dec'**
+  String get monthDec;
+
+  /// No description provided for @appVersion.
+  ///
+  /// In en, this message translates to:
+  /// **'Meeting Silencer v1.0.0'**
+  String get appVersion;
+
+  /// No description provided for @courseLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'ICT107 Mobile App and Web Development'**
+  String get courseLabel;
+
+  /// No description provided for @templateWork.
+  ///
+  /// In en, this message translates to:
+  /// **'9-5 Work'**
+  String get templateWork;
+
+  /// No description provided for @templateLecture1h.
+  ///
+  /// In en, this message translates to:
+  /// **'1hr Lecture'**
+  String get templateLecture1h;
+
+  /// No description provided for @templateLecture2h.
+  ///
+  /// In en, this message translates to:
+  /// **'2hr Lecture'**
+  String get templateLecture2h;
+
+  /// No description provided for @templateStandup.
+  ///
+  /// In en, this message translates to:
+  /// **'30min Standup'**
+  String get templateStandup;
+
+  /// No description provided for @templateEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening Class'**
+  String get templateEvening;
+
+  /// No description provided for @meetingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Meeting title'**
+  String get meetingTitle;
+
+  /// No description provided for @meetingTitleHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Daily Stand-up'**
+  String get meetingTitleHint;
 }
 
 class _AppLocalizationsDelegate
