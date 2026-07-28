@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "अपनी JSON शेड्यूल सूची यहां पेस्ट करें",
   "importSuccess": "{count} शेड्यूल आयात किए गए",
   "importError": "JSON पढ़ा नहीं जा सका। कृपया फॉर्मेट जांचें और पुनः प्रयास करें।",
-  "pickFile": "फ़ाइल चुनें"
+  "pickFile": "फ़ाइल चुनें",
+  "appLock": "ऐप लॉक",
+  "appLockHint": "ऐप खोलने के लिए पिन आवश्यक",
+  "changePin": "पिन बदलें",
+  "setPin": "पिन सेट करें",
+  "enterPin": "पिन दर्ज करें",
+  "newPin": "नया पिन",
+  "confirmPin": "पिन की पुष्टि करें",
+  "unlock": "अनलॉक करें",
+  "wrongPin": "गलत पिन",
+  "pinLength": "पिन 4 अंकों का होना चाहिए",
+  "pinMismatch": "पिन मेल नहीं खाते",
+  "pinSaved": "पिन सहेजा गया"
 }

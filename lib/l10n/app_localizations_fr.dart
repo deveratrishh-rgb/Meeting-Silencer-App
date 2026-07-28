@@ -250,4 +250,40 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get pickFile => 'Choisir un fichier';
+
+  @override
+  String get appLock => 'Verrouillage de l app';
+
+  @override
+  String get appLockHint => 'Demander un code PIN pour ouvrir l application';
+
+  @override
+  String get changePin => 'Changer le code PIN';
+
+  @override
+  String get setPin => 'Definir le code PIN';
+
+  @override
+  String get enterPin => 'Entrez le code PIN';
+
+  @override
+  String get newPin => 'Nouveau code PIN';
+
+  @override
+  String get confirmPin => 'Confirmer le code PIN';
+
+  @override
+  String get unlock => 'Deverrouiller';
+
+  @override
+  String get wrongPin => 'Code PIN incorrect';
+
+  @override
+  String get pinLength => 'Le code PIN doit comporter 4 chiffres';
+
+  @override
+  String get pinMismatch => 'Les codes PIN ne correspondent pas';
+
+  @override
+  String get pinSaved => 'Code PIN enregistre';
 }

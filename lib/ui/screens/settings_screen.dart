@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:io';
@@ -119,6 +120,31 @@ class SettingsScreen extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
+          _SectionHeader(title: l10n.appLock),
+          Card(
+            child: Column(
+              children: [
+                SwitchListTile(
+                  value: settings.appLockEnabled,
+                  onChanged: (val) => _onAppLockToggled(context, val, l10n),
+                  title: Text(l10n.appLock),
+                  subtitle: Text(l10n.appLockHint),
+                  secondary: Icon(
+                    settings.appLockEnabled ? Icons.lock : Icons.lock_open,
+                    color: settings.appLockEnabled ? scheme.primary : scheme.onSurfaceVariant,
+                  ),
+                ),
+                if (settings.appLockEnabled)
+                  ListTile(
+                    leading: const Icon(Icons.password),
+                    title: Text(l10n.changePin),
+                    onTap: () => _showChangePinFlow(context, l10n),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 32),
+
           // "Privacy" has no l10n key — kept in English
           _SectionHeader(title: l10n.settingsPrivacy),
           Card(
@@ -150,6 +176,142 @@ class SettingsScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// Called when the App Lock switch is flipped.
+  /// Turning on with no PIN yet set prompts the user to create one.
+  /// Turning off asks for the current PIN to confirm.
+  Future<void> _onAppLockToggled(BuildContext context, bool enable, AppLocalizations l10n) async {
+    final settingsProvider = context.read<SettingsProvider>();
+    if (enable) {
+      if (!settingsProvider.hasPinSet) {
+        await _showSetPinDialog(context, l10n, isChange: false);
+      } else {
+        await settingsProvider.enableAppLock();
+      }
+    } else {
+      final confirmed = await _showVerifyPinDialog(context, l10n);
+      if (confirmed) {
+        await settingsProvider.disableAppLock();
+      }
+    }
+  }
+
+  Future<void> _showChangePinFlow(BuildContext context, AppLocalizations l10n) async {
+    final confirmed = await _showVerifyPinDialog(context, l10n);
+    if (confirmed && context.mounted) {
+      await _showSetPinDialog(context, l10n, isChange: true);
+    }
+  }
+
+  /// Shows a dialog asking the user to enter their current PIN.
+  /// Returns true if it matched.
+  Future<bool> _showVerifyPinDialog(BuildContext context, AppLocalizations l10n) async {
+    final controller = TextEditingController();
+    final settingsProvider = context.read<SettingsProvider>();
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.enterPin),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          obscureText: true,
+          keyboardType: TextInputType.number,
+          inputFormatters: [
+            FilteringTextInputFormatter.digitsOnly,
+            LengthLimitingTextInputFormatter(4),
+          ],
+          textAlign: TextAlign.center,
+          decoration: const InputDecoration(counterText: ''),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(false), child: Text(l10n.cancel)),
+          TextButton(
+            onPressed: () {
+              if (settingsProvider.verifyPin(controller.text)) {
+                Navigator.of(ctx).pop(true);
+              } else {
+                ScaffoldMessenger.of(ctx).showSnackBar(
+                  SnackBar(content: Text(l10n.wrongPin)),
+                );
+              }
+            },
+            child: Text(l10n.unlock),
+          ),
+        ],
+      ),
+    );
+    return result ?? false;
+  }
+
+  /// Shows a two-step dialog: enter a new PIN, then confirm it.
+  Future<void> _showSetPinDialog(BuildContext context, AppLocalizations l10n, {required bool isChange}) async {
+    final pinController = TextEditingController();
+    final confirmController = TextEditingController();
+    final settingsProvider = context.read<SettingsProvider>();
+
+    final newPin = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(isChange ? l10n.changePin : l10n.setPin),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: pinController,
+              autofocus: true,
+              obscureText: true,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(4),
+              ],
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(labelText: l10n.newPin, counterText: ''),
+            ),
+            const SizedBox(height: 12),
+            TextField(
+              controller: confirmController,
+              obscureText: true,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(4),
+              ],
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(labelText: l10n.confirmPin, counterText: ''),
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(l10n.cancel)),
+          TextButton(
+            onPressed: () {
+              if (pinController.text.length != 4) {
+                ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(l10n.pinLength)));
+                return;
+              }
+              if (pinController.text != confirmController.text) {
+                ScaffoldMessenger.of(ctx).showSnackBar(SnackBar(content: Text(l10n.pinMismatch)));
+                return;
+              }
+              Navigator.of(ctx).pop(pinController.text);
+            },
+            child: Text(l10n.save),
+          ),
+        ],
+      ),
+    );
+
+    if (newPin != null && context.mounted) {
+      await settingsProvider.setPin(newPin);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.pinSaved)),
+        );
+      }
+    }
   }
 
   Future<void> _showImportDialog(BuildContext context, AppLocalizations l10n) async {

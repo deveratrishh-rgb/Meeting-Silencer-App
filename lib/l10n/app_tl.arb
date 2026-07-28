@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "I-paste ang iyong JSON schedule list dito",
   "importSuccess": "{count} iskedyul na na-import",
   "importError": "Hindi mabasa ang JSON. Pakisuri ang format at subukan ulit.",
-  "pickFile": "Pumili ng File"
+  "pickFile": "Pumili ng File",
+  "appLock": "App Lock",
+  "appLockHint": "Kailangan ng PIN para buksan ang app",
+  "changePin": "Palitan ang PIN",
+  "setPin": "Itakda ang PIN",
+  "enterPin": "Ilagay ang PIN",
+  "newPin": "Bagong PIN",
+  "confirmPin": "Kumpirmahin ang PIN",
+  "unlock": "I-unlock",
+  "wrongPin": "Maling PIN",
+  "pinLength": "Dapat 4 na digit ang PIN",
+  "pinMismatch": "Hindi magkatugma ang PIN",
+  "pinSaved": "Na-save ang PIN"
 }

@@ -237,4 +237,40 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get pickFile => 'फ़ाइल चुनें';
+
+  @override
+  String get appLock => 'ऐप लॉक';
+
+  @override
+  String get appLockHint => 'ऐप खोलने के लिए पिन आवश्यक';
+
+  @override
+  String get changePin => 'पिन बदलें';
+
+  @override
+  String get setPin => 'पिन सेट करें';
+
+  @override
+  String get enterPin => 'पिन दर्ज करें';
+
+  @override
+  String get newPin => 'नया पिन';
+
+  @override
+  String get confirmPin => 'पिन की पुष्टि करें';
+
+  @override
+  String get unlock => 'अनलॉक करें';
+
+  @override
+  String get wrongPin => 'गलत पिन';
+
+  @override
+  String get pinLength => 'पिन 4 अंकों का होना चाहिए';
+
+  @override
+  String get pinMismatch => 'पिन मेल नहीं खाते';
+
+  @override
+  String get pinSaved => 'पिन सहेजा गया';
 }

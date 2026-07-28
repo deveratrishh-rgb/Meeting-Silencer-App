@@ -233,4 +233,40 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get pickFile => '选择文件';
+
+  @override
+  String get appLock => '应用锁';
+
+  @override
+  String get appLockHint => '打开应用需要输入PIN码';
+
+  @override
+  String get changePin => '更改PIN码';
+
+  @override
+  String get setPin => '设置PIN码';
+
+  @override
+  String get enterPin => '输入PIN码';
+
+  @override
+  String get newPin => '新PIN码';
+
+  @override
+  String get confirmPin => '确认PIN码';
+
+  @override
+  String get unlock => '解锁';
+
+  @override
+  String get wrongPin => 'PIN码错误';
+
+  @override
+  String get pinLength => 'PIN码必须为4位数字';
+
+  @override
+  String get pinMismatch => 'PIN码不匹配';
+
+  @override
+  String get pinSaved => 'PIN码已保存';
 }

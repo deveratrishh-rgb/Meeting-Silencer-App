@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "Collez votre liste JSON ici",
   "importSuccess": "{count, plural, one{{count} horaire importe} other{{count} horaires importes}}",
   "importError": "Impossible de lire le JSON. Verifiez le format et reessayez.",
-  "pickFile": "Choisir un fichier"
+  "pickFile": "Choisir un fichier",
+  "appLock": "Verrouillage de l app",
+  "appLockHint": "Demander un code PIN pour ouvrir l application",
+  "changePin": "Changer le code PIN",
+  "setPin": "Definir le code PIN",
+  "enterPin": "Entrez le code PIN",
+  "newPin": "Nouveau code PIN",
+  "confirmPin": "Confirmer le code PIN",
+  "unlock": "Deverrouiller",
+  "wrongPin": "Code PIN incorrect",
+  "pinLength": "Le code PIN doit comporter 4 chiffres",
+  "pinMismatch": "Les codes PIN ne correspondent pas",
+  "pinSaved": "Code PIN enregistre"
 }

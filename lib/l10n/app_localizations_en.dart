@@ -249,4 +249,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pickFile => 'Pick File';
+
+  @override
+  String get appLock => 'App Lock';
+
+  @override
+  String get appLockHint => 'Require a PIN to open the app';
+
+  @override
+  String get changePin => 'Change PIN';
+
+  @override
+  String get setPin => 'Set PIN';
+
+  @override
+  String get enterPin => 'Enter PIN';
+
+  @override
+  String get newPin => 'New PIN';
+
+  @override
+  String get confirmPin => 'Confirm PIN';
+
+  @override
+  String get unlock => 'Unlock';
+
+  @override
+  String get wrongPin => 'Incorrect PIN';
+
+  @override
+  String get pinLength => 'PIN must be 4 digits';
+
+  @override
+  String get pinMismatch => 'PINs do not match';
+
+  @override
+  String get pinSaved => 'PIN saved';
 }

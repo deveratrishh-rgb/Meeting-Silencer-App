@@ -236,4 +236,40 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get pickFile => 'फाइल छान्नुहोस्';
+
+  @override
+  String get appLock => 'एप लक';
+
+  @override
+  String get appLockHint => 'एप खोल्न PIN आवश्यक पर्ने';
+
+  @override
+  String get changePin => 'PIN परिवर्तन गर्नुहोस्';
+
+  @override
+  String get setPin => 'PIN सेट गर्नुहोस्';
+
+  @override
+  String get enterPin => 'PIN प्रविष्ट गर्नुहोस्';
+
+  @override
+  String get newPin => 'नयाँ PIN';
+
+  @override
+  String get confirmPin => 'PIN पुष्टि गर्नुहोस्';
+
+  @override
+  String get unlock => 'अनलक गर्नुहोस्';
+
+  @override
+  String get wrongPin => 'गलत PIN';
+
+  @override
+  String get pinLength => 'PIN ४ अंकको हुनुपर्छ';
+
+  @override
+  String get pinMismatch => 'PIN मेल खाएन';
+
+  @override
+  String get pinSaved => 'PIN सुरक्षित गरियो';
 }

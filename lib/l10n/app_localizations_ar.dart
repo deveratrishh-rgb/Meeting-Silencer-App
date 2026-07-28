@@ -234,4 +234,40 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pickFile => 'اختر ملفا';
+
+  @override
+  String get appLock => 'قفل التطبيق';
+
+  @override
+  String get appLockHint => 'يتطلب رمز PIN لفتح التطبيق';
+
+  @override
+  String get changePin => 'تغيير رمز PIN';
+
+  @override
+  String get setPin => 'تعيين رمز PIN';
+
+  @override
+  String get enterPin => 'أدخل رمز PIN';
+
+  @override
+  String get newPin => 'رمز PIN جديد';
+
+  @override
+  String get confirmPin => 'تأكيد رمز PIN';
+
+  @override
+  String get unlock => 'فتح القفل';
+
+  @override
+  String get wrongPin => 'رمز PIN غير صحيح';
+
+  @override
+  String get pinLength => 'يجب أن يتكون رمز PIN من 4 أرقام';
+
+  @override
+  String get pinMismatch => 'رمز PIN غير متطابق';
+
+  @override
+  String get pinSaved => 'تم حفظ رمز PIN';
 }

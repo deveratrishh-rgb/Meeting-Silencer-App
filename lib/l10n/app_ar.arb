@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "الصق قائمة JSON الخاصة بك هنا",
   "importSuccess": "تم استيراد {count} جدول",
   "importError": "تعذرت قراءة JSON. يرجى التحقق من التنسيق والمحاولة مرة أخرى.",
-  "pickFile": "اختر ملفا"
+  "pickFile": "اختر ملفا",
+  "appLock": "قفل التطبيق",
+  "appLockHint": "يتطلب رمز PIN لفتح التطبيق",
+  "changePin": "تغيير رمز PIN",
+  "setPin": "تعيين رمز PIN",
+  "enterPin": "أدخل رمز PIN",
+  "newPin": "رمز PIN جديد",
+  "confirmPin": "تأكيد رمز PIN",
+  "unlock": "فتح القفل",
+  "wrongPin": "رمز PIN غير صحيح",
+  "pinLength": "يجب أن يتكون رمز PIN من 4 أرقام",
+  "pinMismatch": "رمز PIN غير متطابق",
+  "pinSaved": "تم حفظ رمز PIN"
 }

@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "在此粘贴您的JSON日程列表",
   "importSuccess": "已导入{count}个日程",
   "importError": "无法读取JSON。请检查格式并重试。",
-  "pickFile": "选择文件"
+  "pickFile": "选择文件",
+  "appLock": "应用锁",
+  "appLockHint": "打开应用需要输入PIN码",
+  "changePin": "更改PIN码",
+  "setPin": "设置PIN码",
+  "enterPin": "输入PIN码",
+  "newPin": "新PIN码",
+  "confirmPin": "确认PIN码",
+  "unlock": "解锁",
+  "wrongPin": "PIN码错误",
+  "pinLength": "PIN码必须为4位数字",
+  "pinMismatch": "PIN码不匹配",
+  "pinSaved": "PIN码已保存"
 }

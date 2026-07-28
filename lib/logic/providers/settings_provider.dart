@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/app_settings.dart';
@@ -23,6 +25,8 @@ class SettingsProvider extends ChangeNotifier {
   String get defaultMode => _settings.defaultMode;
   int get defaultAlertMinutes => _settings.defaultAlertMinutes;
   String get themeMode => _settings.themeMode;
+  bool get appLockEnabled => _settings.appLockEnabled;
+  bool get hasPinSet => _settings.pinHash != null && _settings.pinHash!.isNotEmpty;
 
   /// Returns the Flutter ThemeMode based on the stored preference.
   ThemeMode get flutterThemeMode {
@@ -55,6 +59,33 @@ class SettingsProvider extends ChangeNotifier {
 
   Future<void> setThemeMode(String mode) async {
     _settings = _settings.copyWith(themeMode: mode);
+    await _save();
+    notifyListeners();
+  }
+
+  String _hashPin(String pin) => sha256.convert(utf8.encode(pin)).toString();
+
+  /// Sets a new PIN and enables app lock. Overwrites any existing PIN.
+  Future<void> setPin(String pin) async {
+    _settings = _settings.copyWith(pinHash: _hashPin(pin), appLockEnabled: true);
+    await _save();
+    notifyListeners();
+  }
+
+  /// Verifies a PIN attempt against the stored hash.
+  bool verifyPin(String pin) => _settings.pinHash == _hashPin(pin);
+
+  /// Disables app lock. The PIN hash is kept so re-enabling doesn't
+  /// require setting a new PIN, but it can no longer be used to unlock.
+  Future<void> disableAppLock() async {
+    _settings = _settings.copyWith(appLockEnabled: false);
+    await _save();
+    notifyListeners();
+  }
+
+  /// Re-enables app lock using the previously set PIN.
+  Future<void> enableAppLock() async {
+    _settings = _settings.copyWith(appLockEnabled: true);
     await _save();
     notifyListeners();
   }

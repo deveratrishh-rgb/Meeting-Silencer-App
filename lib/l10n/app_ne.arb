@@ -70,5 +70,17 @@
   "importSchedulesPlaceholder": "यहाँ आफ्नो JSON तालिका सूची टाँस्नुहोस्",
   "importSuccess": "{count} तालिका आयात गरियो",
   "importError": "JSON पढ्न सकिएन। ढाँचा जाँच गरेर फेरि प्रयास गर्नुहोस्।",
-  "pickFile": "फाइल छान्नुहोस्"
+  "pickFile": "फाइल छान्नुहोस्",
+  "appLock": "एप लक",
+  "appLockHint": "एप खोल्न PIN आवश्यक पर्ने",
+  "changePin": "PIN परिवर्तन गर्नुहोस्",
+  "setPin": "PIN सेट गर्नुहोस्",
+  "enterPin": "PIN प्रविष्ट गर्नुहोस्",
+  "newPin": "नयाँ PIN",
+  "confirmPin": "PIN पुष्टि गर्नुहोस्",
+  "unlock": "अनलक गर्नुहोस्",
+  "wrongPin": "गलत PIN",
+  "pinLength": "PIN ४ अंकको हुनुपर्छ",
+  "pinMismatch": "PIN मेल खाएन",
+  "pinSaved": "PIN सुरक्षित गरियो"
 }

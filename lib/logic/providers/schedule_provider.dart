@@ -96,10 +96,18 @@ class ScheduleProvider extends ChangeNotifier {
       throw const FormatException('JSON must be a list of schedule objects');
     }
     int imported = 0;
-    for (final item in decoded) {
+    // Base timestamp is fixed once per import call, and each item's unique
+    // suffix is its own position in the list — guarantees every generated
+    // id is distinct even if items share a title/time or the loop runs
+    // faster than the system clock resolution.
+    final importBatchId = DateTime.now().microsecondsSinceEpoch;
+    for (int i = 0; i < decoded.length; i++) {
+      final item = decoded[i];
       if (item is! Map<String, dynamic>) continue;
+      final providedId = item['id'];
+      final hasUsableId = providedId is String && providedId.trim().isNotEmpty;
       final withId = <String, dynamic>{
-        'id': item['id'] ?? '\${DateTime.now().millisecondsSinceEpoch}_\$imported',
+        'id': hasUsableId ? providedId : '${importBatchId}_$i',
         'title': item['title'],
         'startHour': item['startHour'],
         'startMinute': item['startMinute'],
@@ -113,6 +121,8 @@ class ScheduleProvider extends ChangeNotifier {
       };
       final schedule = MeetingSchedule.fromJson(withId);
       if (isDuplicate(schedule)) continue;
+      // Also guard against two items in the same file sharing an id
+      if (_schedules.any((s) => s.id == schedule.id)) continue;
       _schedules.add(schedule);
       _notifications.scheduleAlertNotification(schedule);
       imported++;

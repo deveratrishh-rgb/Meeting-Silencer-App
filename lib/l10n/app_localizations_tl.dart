@@ -237,4 +237,40 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get pickFile => 'Pumili ng File';
+
+  @override
+  String get appLock => 'App Lock';
+
+  @override
+  String get appLockHint => 'Kailangan ng PIN para buksan ang app';
+
+  @override
+  String get changePin => 'Palitan ang PIN';
+
+  @override
+  String get setPin => 'Itakda ang PIN';
+
+  @override
+  String get enterPin => 'Ilagay ang PIN';
+
+  @override
+  String get newPin => 'Bagong PIN';
+
+  @override
+  String get confirmPin => 'Kumpirmahin ang PIN';
+
+  @override
+  String get unlock => 'I-unlock';
+
+  @override
+  String get wrongPin => 'Maling PIN';
+
+  @override
+  String get pinLength => 'Dapat 4 na digit ang PIN';
+
+  @override
+  String get pinMismatch => 'Hindi magkatugma ang PIN';
+
+  @override
+  String get pinSaved => 'Na-save ang PIN';
 }

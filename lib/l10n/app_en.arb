@@ -137,5 +137,17 @@
       }
     }
   },
-  "pickFile": "Pick File"
+  "pickFile": "Pick File",
+  "appLock": "App Lock",
+  "appLockHint": "Require a PIN to open the app",
+  "changePin": "Change PIN",
+  "setPin": "Set PIN",
+  "enterPin": "Enter PIN",
+  "newPin": "New PIN",
+  "confirmPin": "Confirm PIN",
+  "unlock": "Unlock",
+  "wrongPin": "Incorrect PIN",
+  "pinLength": "PIN must be 4 digits",
+  "pinMismatch": "PINs do not match",
+  "pinSaved": "PIN saved"
 }
