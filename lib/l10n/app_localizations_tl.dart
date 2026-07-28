@@ -214,4 +214,27 @@ class AppLocalizationsTl extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'hal. Araw-araw na Stand-up';
+
+  @override
+  String get importSchedules => 'I-import ang mga Iskedyul';
+
+  @override
+  String get importSchedulesHint =>
+      'I-paste ang JSON para magdagdag ng maraming iskedyul nang sabay';
+
+  @override
+  String get importSchedulesPlaceholder =>
+      'I-paste ang iyong JSON schedule list dito';
+
+  @override
+  String importSuccess(num count) {
+    return '$count iskedyul na na-import';
+  }
+
+  @override
+  String get importError =>
+      'Hindi mabasa ang JSON. Pakisuri ang format at subukan ulit.';
+
+  @override
+  String get pickFile => 'Pumili ng File';
 }

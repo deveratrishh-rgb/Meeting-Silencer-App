@@ -221,4 +221,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'e.g. Daily Stand-up';
+
+  @override
+  String get importSchedules => 'Import Schedules';
+
+  @override
+  String get importSchedulesHint =>
+      'Paste JSON to add multiple schedules at once';
+
+  @override
+  String get importSchedulesPlaceholder => 'Paste your JSON schedule list here';
+
+  @override
+  String importSuccess(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Imported $count schedules',
+      one: 'Imported $count schedule',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get importError =>
+      'Could not read the JSON. Please check the format and try again.';
+
+  @override
+  String get pickFile => 'Pick File';
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dart:convert';
+
 import '../../data/models/meeting_schedule.dart';
 import '../../data/services/notification_service.dart';
 import '../../data/services/storage_service.dart';
@@ -82,6 +84,44 @@ class ScheduleProvider extends ChangeNotifier {
     // midnight-spanning windows correctly (TC-22 fix)
     final now = DateTime.now();
     return enabledSchedules.any((s) => s.isActiveAt(now));
+  }
+
+  /// Imports schedules from a raw JSON string (array of schedule objects).
+  /// Each item does not need an 'id' — one is generated automatically.
+  /// Returns the number of schedules successfully imported.
+  /// Throws a FormatException with a readable message if the JSON is invalid.
+  Future<int> importSchedulesFromJson(String rawJson) async {
+    final decoded = jsonDecode(rawJson);
+    if (decoded is! List) {
+      throw const FormatException('JSON must be a list of schedule objects');
+    }
+    int imported = 0;
+    for (final item in decoded) {
+      if (item is! Map<String, dynamic>) continue;
+      final withId = <String, dynamic>{
+        'id': item['id'] ?? '\${DateTime.now().millisecondsSinceEpoch}_\$imported',
+        'title': item['title'],
+        'startHour': item['startHour'],
+        'startMinute': item['startMinute'],
+        'endHour': item['endHour'],
+        'endMinute': item['endMinute'],
+        'repeatDays': item['repeatDays'],
+        'mode': item['mode'],
+        'isEnabled': item['isEnabled'] ?? true,
+        'alertMinutesBefore': item['alertMinutesBefore'] ?? 5,
+        'restoreAfter': item['restoreAfter'] ?? true,
+      };
+      final schedule = MeetingSchedule.fromJson(withId);
+      if (isDuplicate(schedule)) continue;
+      _schedules.add(schedule);
+      _notifications.scheduleAlertNotification(schedule);
+      imported++;
+    }
+    if (imported > 0) {
+      notifyListeners();
+      await _persist();
+    }
+    return imported;
   }
 
   Future<void> _persist() => _storage.saveSchedules(_schedules);

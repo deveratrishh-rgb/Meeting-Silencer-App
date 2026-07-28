@@ -213,4 +213,25 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'مثال: اجتماع يومي';
+
+  @override
+  String get importSchedules => 'استيراد الجداول';
+
+  @override
+  String get importSchedulesHint => 'الصق JSON لإضافة عدة جداول دفعة واحدة';
+
+  @override
+  String get importSchedulesPlaceholder => 'الصق قائمة JSON الخاصة بك هنا';
+
+  @override
+  String importSuccess(num count) {
+    return 'تم استيراد $count جدول';
+  }
+
+  @override
+  String get importError =>
+      'تعذرت قراءة JSON. يرجى التحقق من التنسيق والمحاولة مرة أخرى.';
+
+  @override
+  String get pickFile => 'اختر ملفا';
 }

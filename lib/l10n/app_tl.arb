@@ -64,5 +64,11 @@
   "templateStandup": "30min Standup",
   "templateEvening": "Gabi na Klase",
   "meetingTitle": "Pamagat ng pulong",
-  "meetingTitleHint": "hal. Araw-araw na Stand-up"
+  "meetingTitleHint": "hal. Araw-araw na Stand-up",
+  "importSchedules": "I-import ang mga Iskedyul",
+  "importSchedulesHint": "I-paste ang JSON para magdagdag ng maraming iskedyul nang sabay",
+  "importSchedulesPlaceholder": "I-paste ang iyong JSON schedule list dito",
+  "importSuccess": "{count} iskedyul na na-import",
+  "importError": "Hindi mabasa ang JSON. Pakisuri ang format at subukan ulit.",
+  "pickFile": "Pumili ng File"
 }

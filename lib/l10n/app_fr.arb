@@ -64,5 +64,11 @@
   "templateStandup": "Reunion 30min",
   "templateEvening": "Cours du soir",
   "meetingTitle": "Titre de la reunion",
-  "meetingTitleHint": "ex. Reunion quotidienne"
+  "meetingTitleHint": "ex. Reunion quotidienne",
+  "importSchedules": "Importer des horaires",
+  "importSchedulesHint": "Collez du JSON pour ajouter plusieurs horaires a la fois",
+  "importSchedulesPlaceholder": "Collez votre liste JSON ici",
+  "importSuccess": "{count, plural, one{{count} horaire importe} other{{count} horaires importes}}",
+  "importError": "Impossible de lire le JSON. Verifiez le format et reessayez.",
+  "pickFile": "Choisir un fichier"
 }

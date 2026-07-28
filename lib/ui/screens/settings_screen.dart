@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io';
 
 import '../../l10n/app_localizations.dart'; // Provides translated strings for this screen
 import '../../logic/providers/settings_provider.dart';
+import '../../logic/providers/schedule_provider.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -105,6 +108,17 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
           ),
+          _SectionHeader(title: l10n.importSchedules),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.upload_file_outlined, color: scheme.primary),
+              title: Text(l10n.importSchedules),
+              subtitle: Text(l10n.importSchedulesHint),
+              onTap: () => _showImportDialog(context, l10n),
+            ),
+          ),
+          const SizedBox(height: 32),
+
           // "Privacy" has no l10n key — kept in English
           _SectionHeader(title: l10n.settingsPrivacy),
           Card(
@@ -136,6 +150,63 @@ class SettingsScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _showImportDialog(BuildContext context, AppLocalizations l10n) async {
+    final controller = TextEditingController();
+    final provider = context.read<ScheduleProvider>();
+    final result = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.importSchedules),
+        content: SizedBox(
+          width: double.maxFinite,
+          child: TextField(
+            controller: controller,
+            maxLines: 10,
+            decoration: InputDecoration(
+              hintText: l10n.importSchedulesPlaceholder,
+              border: const OutlineInputBorder(),
+            ),
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              final picked = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['json'],
+              );
+              if (picked != null && picked.files.single.path != null) {
+                final file = File(picked.files.single.path!);
+                controller.text = await file.readAsString();
+              }
+            },
+            child: Text(l10n.pickFile),
+          ),
+          TextButton(onPressed: () => Navigator.of(ctx).pop(), child: Text(l10n.cancel)),
+          TextButton(
+            onPressed: () => Navigator.of(ctx).pop(controller.text),
+            child: Text(l10n.importSchedules),
+          ),
+        ],
+      ),
+    );
+
+    if (result == null || result.trim().isEmpty || !context.mounted) return;
+
+    try {
+      final count = await provider.importSchedulesFromJson(result);
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.importSuccess(count))),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.importError)),
+      );
+    }
   }
 }
 

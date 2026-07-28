@@ -214,4 +214,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'जैसे दैनिक स्टैंडअप';
+
+  @override
+  String get importSchedules => 'शेड्यूल आयात करें';
+
+  @override
+  String get importSchedulesHint =>
+      'एक साथ कई शेड्यूल जोड़ने के लिए JSON पेस्ट करें';
+
+  @override
+  String get importSchedulesPlaceholder =>
+      'अपनी JSON शेड्यूल सूची यहां पेस्ट करें';
+
+  @override
+  String importSuccess(num count) {
+    return '$count शेड्यूल आयात किए गए';
+  }
+
+  @override
+  String get importError =>
+      'JSON पढ़ा नहीं जा सका। कृपया फॉर्मेट जांचें और पुनः प्रयास करें।';
+
+  @override
+  String get pickFile => 'फ़ाइल चुनें';
 }

@@ -213,4 +213,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get meetingTitleHint => '例如：每日站会';
+
+  @override
+  String get importSchedules => '导入日程';
+
+  @override
+  String get importSchedulesHint => '粘贴JSON以一次添加多个日程';
+
+  @override
+  String get importSchedulesPlaceholder => '在此粘贴您的JSON日程列表';
+
+  @override
+  String importSuccess(num count) {
+    return '已导入$count个日程';
+  }
+
+  @override
+  String get importError => '无法读取JSON。请检查格式并重试。';
+
+  @override
+  String get pickFile => '选择文件';
 }

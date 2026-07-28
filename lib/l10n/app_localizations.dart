@@ -497,6 +497,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'e.g. Daily Stand-up'**
   String get meetingTitleHint;
+
+  /// No description provided for @importSchedules.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Schedules'**
+  String get importSchedules;
+
+  /// No description provided for @importSchedulesHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste JSON to add multiple schedules at once'**
+  String get importSchedulesHint;
+
+  /// No description provided for @importSchedulesPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Paste your JSON schedule list here'**
+  String get importSchedulesPlaceholder;
+
+  /// No description provided for @importSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{Imported {count} schedule} other{Imported {count} schedules}}'**
+  String importSuccess(num count);
+
+  /// No description provided for @importError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read the JSON. Please check the format and try again.'**
+  String get importError;
+
+  /// No description provided for @pickFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick File'**
+  String get pickFile;
 }
 
 class _AppLocalizationsDelegate

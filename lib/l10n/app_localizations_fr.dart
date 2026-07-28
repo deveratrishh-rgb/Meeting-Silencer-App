@@ -222,4 +222,32 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'ex. Reunion quotidienne';
+
+  @override
+  String get importSchedules => 'Importer des horaires';
+
+  @override
+  String get importSchedulesHint =>
+      'Collez du JSON pour ajouter plusieurs horaires a la fois';
+
+  @override
+  String get importSchedulesPlaceholder => 'Collez votre liste JSON ici';
+
+  @override
+  String importSuccess(num count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count horaires importes',
+      one: '$count horaire importe',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get importError =>
+      'Impossible de lire le JSON. Verifiez le format et reessayez.';
+
+  @override
+  String get pickFile => 'Choisir un fichier';
 }

@@ -64,5 +64,11 @@
   "templateStandup": "३० मिनेट स्ट्यान्डअप",
   "templateEvening": "साँझको कक्षा",
   "meetingTitle": "बैठकको शीर्षक",
-  "meetingTitleHint": "जस्तै, दैनिक स्ट्यान्डअप"
+  "meetingTitleHint": "जस्तै, दैनिक स्ट्यान्डअप",
+  "importSchedules": "तालिका आयात गर्नुहोस्",
+  "importSchedulesHint": "एकैचोटि धेरै तालिका थप्न JSON टाँस्नुहोस्",
+  "importSchedulesPlaceholder": "यहाँ आफ्नो JSON तालिका सूची टाँस्नुहोस्",
+  "importSuccess": "{count} तालिका आयात गरियो",
+  "importError": "JSON पढ्न सकिएन। ढाँचा जाँच गरेर फेरि प्रयास गर्नुहोस्।",
+  "pickFile": "फाइल छान्नुहोस्"
 }

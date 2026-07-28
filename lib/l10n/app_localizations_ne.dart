@@ -214,4 +214,26 @@ class AppLocalizationsNe extends AppLocalizations {
 
   @override
   String get meetingTitleHint => 'जस्तै, दैनिक स्ट्यान्डअप';
+
+  @override
+  String get importSchedules => 'तालिका आयात गर्नुहोस्';
+
+  @override
+  String get importSchedulesHint => 'एकैचोटि धेरै तालिका थप्न JSON टाँस्नुहोस्';
+
+  @override
+  String get importSchedulesPlaceholder =>
+      'यहाँ आफ्नो JSON तालिका सूची टाँस्नुहोस्';
+
+  @override
+  String importSuccess(num count) {
+    return '$count तालिका आयात गरियो';
+  }
+
+  @override
+  String get importError =>
+      'JSON पढ्न सकिएन। ढाँचा जाँच गरेर फेरि प्रयास गर्नुहोस्।';
+
+  @override
+  String get pickFile => 'फाइल छान्नुहोस्';
 }

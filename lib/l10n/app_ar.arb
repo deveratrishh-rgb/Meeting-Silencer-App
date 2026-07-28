@@ -64,5 +64,11 @@
   "templateStandup": "اجتماع 30 دقيقة",
   "templateEvening": "صف مسائي",
   "meetingTitle": "عنوان الاجتماع",
-  "meetingTitleHint": "مثال: اجتماع يومي"
+  "meetingTitleHint": "مثال: اجتماع يومي",
+  "importSchedules": "استيراد الجداول",
+  "importSchedulesHint": "الصق JSON لإضافة عدة جداول دفعة واحدة",
+  "importSchedulesPlaceholder": "الصق قائمة JSON الخاصة بك هنا",
+  "importSuccess": "تم استيراد {count} جدول",
+  "importError": "تعذرت قراءة JSON. يرجى التحقق من التنسيق والمحاولة مرة أخرى.",
+  "pickFile": "اختر ملفا"
 }

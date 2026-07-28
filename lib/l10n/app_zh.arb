@@ -64,5 +64,11 @@
   "templateStandup": "30分钟站会",
   "templateEvening": "晚间课程",
   "meetingTitle": "会议标题",
-  "meetingTitleHint": "例如：每日站会"
+  "meetingTitleHint": "例如：每日站会",
+  "importSchedules": "导入日程",
+  "importSchedulesHint": "粘贴JSON以一次添加多个日程",
+  "importSchedulesPlaceholder": "在此粘贴您的JSON日程列表",
+  "importSuccess": "已导入{count}个日程",
+  "importError": "无法读取JSON。请检查格式并重试。",
+  "pickFile": "选择文件"
 }

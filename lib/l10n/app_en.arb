@@ -124,5 +124,18 @@
   "templateStandup": "30min Standup",
   "templateEvening": "Evening Class",
   "meetingTitle": "Meeting title",
-  "meetingTitleHint": "e.g. Daily Stand-up"
+  "meetingTitleHint": "e.g. Daily Stand-up",
+  "importSchedules": "Import Schedules",
+  "importSchedulesHint": "Paste JSON to add multiple schedules at once",
+  "importSchedulesPlaceholder": "Paste your JSON schedule list here",
+  "importSuccess": "{count, plural, one{Imported {count} schedule} other{Imported {count} schedules}}",
+  "importError": "Could not read the JSON. Please check the format and try again.",
+  "@importSuccess": {
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "pickFile": "Pick File"
 }

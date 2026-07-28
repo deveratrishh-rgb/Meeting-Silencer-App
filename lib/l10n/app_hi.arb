@@ -64,5 +64,11 @@
   "templateStandup": "30मिनट स्टैंडअप",
   "templateEvening": "शाम की कक्षा",
   "meetingTitle": "बैठक का शीर्षक",
-  "meetingTitleHint": "जैसे दैनिक स्टैंडअप"
+  "meetingTitleHint": "जैसे दैनिक स्टैंडअप",
+  "importSchedules": "शेड्यूल आयात करें",
+  "importSchedulesHint": "एक साथ कई शेड्यूल जोड़ने के लिए JSON पेस्ट करें",
+  "importSchedulesPlaceholder": "अपनी JSON शेड्यूल सूची यहां पेस्ट करें",
+  "importSuccess": "{count} शेड्यूल आयात किए गए",
+  "importError": "JSON पढ़ा नहीं जा सका। कृपया फॉर्मेट जांचें और पुनः प्रयास करें।",
+  "pickFile": "फ़ाइल चुनें"
 }
